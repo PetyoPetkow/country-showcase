@@ -3,25 +3,25 @@ import type { Continent, Country } from "../../types/country";
 import CountryCardDetailsRow from "./CountryCardDetailsRow";
 
 const continentNameBgColor: Record<Continent, string> = {
-  Africa: "bg-amber-500/70",
-  Asia: "bg-green-700/80",
-  Europe: "bg-blue-500",
-  "North America": "bg-red-500/80",
-  "South America": "bg-fuchsia-900/60",
-  Oceania: "bg-sky-400",
+  Africa: "bg-amber-500/70 dark:bg-amber-950",
+  Asia: "bg-green-700/80 dark:bg-green-950",
+  Europe: "bg-blue-500 dark:bg-blue-950",
+  "North America": "bg-red-500/80 dark:bg-red-950",
+  "South America": "bg-fuchsia-900/60 dark:bg-fuchsia-950",
+  Oceania: "bg-sky-400 dark:bg-sky-800",
 };
 
 const CountryCard: FC<CountryCardProps> = ({ country }) => {
   return (
-    <article className="h-full border border-gray-300 bg-white p-4 rounded-md">
+    <article className="h-full p-4 rounded-md border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-900">
       <img
         src={country.image}
         alt={`Flag of ${country.name}`}
-        className="mx-auto max-h-36 border border-gray-300"
+        className="max-h-36 mx-auto border border-gray-300 dark:border-slate-600"
       />
 
       <div className="text-start mt-7">
-        <h3 className="text-3xl font-semibold text-slate-800">
+        <h3 className="text-3xl font-semibold text-slate-800 dark:text-white">
           {country.name}
         </h3>
 
@@ -31,7 +31,9 @@ const CountryCard: FC<CountryCardProps> = ({ country }) => {
           {country.continent.toUpperCase()}
         </div>
 
-        <p className="text-gray-700 mt-3">{country.shortInfo}</p>
+        <p className="mt-3 text-gray-700 dark:text-slate-400">
+          {country.shortInfo}
+        </p>
 
         <dl className="mt-5 flex flex-col gap-1">
           <CountryCardDetailsRow

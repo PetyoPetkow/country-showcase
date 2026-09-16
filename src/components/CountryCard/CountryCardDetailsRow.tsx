@@ -25,12 +25,12 @@ const detailConfig: Record<
 };
 
 const continentIconColors: Record<Continent, string> = {
-  Africa: "text-amber-700",
-  Asia: "text-green-700",
-  Europe: "text-blue-700 ",
-  "North America": "text-red-700",
-  "South America": "text-fuchsia-700",
-  Oceania: "text-sky-700",
+  Africa: "text-amber-700 dark:text-amber-500",
+  Asia: "text-green-700 dark:text-green-500",
+  Europe: "text-blue-700 dark:text-blue-300",
+  "North America": "text-red-700 dark:text-red-400",
+  "South America": "text-fuchsia-700 dark:text-fuchsia-300",
+  Oceania: "text-sky-700 dark:text-sky-400",
 };
 
 const CountryCardDetailsRow: FC<CountryCardDetailsRowProps> = ({
@@ -41,8 +41,8 @@ const CountryCardDetailsRow: FC<CountryCardDetailsRowProps> = ({
   const { label, icon: Icon } = detailConfig[detailKey];
 
   return (
-    <div className="grid grid-cols-2 py-2 border-t border-gray-200">
-      <dt className="flex items-center gap-3">
+    <div className="grid grid-cols-2 py-2 border-t border-gray-200 dark:border-slate-600">
+      <dt className="flex items-center gap-3 dark:text-white">
         <Icon
           aria-hidden="true"
           className={continentIconColors[continent]}
@@ -51,7 +51,7 @@ const CountryCardDetailsRow: FC<CountryCardDetailsRowProps> = ({
         {label}
       </dt>
 
-      <dd className="text-gray-600">{value}</dd>
+      <dd className="text-gray-600 dark:text-slate-300">{value}</dd>
     </div>
   );
 };

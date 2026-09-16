@@ -1,12 +1,29 @@
+import { useEffect, useState } from "react";
+import AppHeader from "./components/AppHeader";
 import CountryCard from "./components/CountryCard";
 import useCountries from "./hooks/useCountries";
 
 const App = () => {
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return localStorage.getItem("theme") === "dark";
+  });
+
   const { countries } = useCountries(12);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode((previous) => !previous);
+  };
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isDarkMode);
+    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+  }, [isDarkMode]);
 
   return (
     <>
-      <main className="bg-gray-50 p-4">
+      <AppHeader isDarkMode={isDarkMode} toggle={toggleDarkMode} />
+
+      <main className="p-4 bg-gray-50 dark:bg-slate-950">
         <section aria-labelledby="countries-heading">
           <h2 id="countries-heading" className="sr-only">
             Countries
