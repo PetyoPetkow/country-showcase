@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
+import useCountries from "./hooks/useCountries";
 import AppHeader from "./components/AppHeader";
 import CountryCard from "./components/CountryCard";
-import useCountries from "./hooks/useCountries";
+import CountryCardSkeleton from "./components/CountryCard/CountryCardSkeleton";
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     return localStorage.getItem("theme") === "dark";
   });
 
-  const { countries } = useCountries(12);
+  const { countries, loading } = useCountries(12);
 
   const toggleDarkMode = () => {
     setIsDarkMode((previous) => !previous);
@@ -30,11 +31,17 @@ const App = () => {
           </h2>
 
           <ul className="grid grid-cols-3 max-xl:grid-cols-2 max-md:grid-cols-1 gap-6 max-w-350 mx-auto">
-            {countries.map((country) => (
-              <li key={country.name}>
-                <CountryCard country={country} />
-              </li>
-            ))}
+            {loading
+              ? Array.from({ length: 12 }).map((_, index) => (
+                  <li key={`skeleton-${index}`}>
+                    <CountryCardSkeleton />
+                  </li>
+                ))
+              : countries.slice(0, 12).map((country) => (
+                  <li key={country.name}>
+                    <CountryCard country={country} />
+                  </li>
+                ))}
           </ul>
         </section>
       </main>
