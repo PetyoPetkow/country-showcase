@@ -1,78 +1,51 @@
-# React + TypeScript + Vite
+# Country showcase
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive React application that fetches country data from countries.json and displays it as a grid of country cards.
 
-Currently, two official plugins are available:
+The app includes search, continent filtering, sorting, loading and error states, and a light/dark theme toggle.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Getting started
 
-## React Compiler
+### Prerequisites
+- <strong>Node.js</strong> v24
+- <strong>pnpm</strong> v10 or newer
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+### Instalation
+```
+git clone https://github.com/PetyoPetkow/country-showcase.git
+cd country-showcase
+pnpm install
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+### Run locally
 ```
+pnpm run dev
+```
+Then open the local URL shown in the terminal.
+
+## Tech Stack
+
+- **React** - the preferred option in the task and the library I have most experience with
+- **TypeScript** - for static typing and safer handling of country data and component props.
+- **Vite** - chosen for its simple setup and fast development experience.
+- **Tailwind CSS** - chosen for responsive styling and convenient light/dark theme support.
+- **Lucide React** - used for lightweight, consistent icons.
+
+## Features
+- Fetches and displays country data from `countries.json`
+- Search countries by name, filter by continent and sort by population or total area (ascending/descending order)
+- Shows up to 12 countries in cards with flag image, country name, continent, short info and more
+- Loading state with skeleton cards
+- Error state handling with retry functionality
+- Light/dark mode with preference persisted across reloads
+- Responsive and accessible UI
+
+## What I'd Improve With More Time
+- Add automated tests for the filtering, sorting, search, and error-handling logic.
+- Extract the search/filter/sort state and logic into a dedicated hook if the application grows further.
+- Add further visual polish to the header and cards based on additional testing.
+
+
+## AI Collaboration
+
+Details about the AI-assisted development process, prompts, and review decisions can be found in [`AI_NOTES.md`](./AI_NOTES.md).
