@@ -15,18 +15,18 @@ const fetchCountries = async (): Promise<Country[]> => {
   return response.json();
 };
 
-const useCountries = (limit: number) => {
+const useCountries = () => {
   const [countries, setCountries] = useState<Country[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<ErrorResponse | null>(null);
 
-  const load = useCallback(async (count: number) => {
+  const load = useCallback(async () => {
     setLoading(true);
     setError(null);
 
     try {
       const data = await fetchCountries();
-      setCountries(data.slice(0, count));
+      setCountries(data);
     } catch {
       setError({
         title: "Unable to load countries",
@@ -39,10 +39,10 @@ const useCountries = (limit: number) => {
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- fetch-on-mount/limit-change; result state is only set after the awaited fetch resolves
-    load(limit);
-  }, [limit, load]);
+    load();
+  }, [load]);
 
-  const refetch = useCallback(() => load(limit), [limit, load]);
+  const refetch = useCallback(() => load(), [load]);
 
   return { countries, loading, error, refetch };
 };
