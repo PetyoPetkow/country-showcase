@@ -18,7 +18,7 @@ const fetchCountries = async (): Promise<Country[]> => {
 const useCountries = (limit: number) => {
   const [countries, setCountries] = useState<Country[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<ErrorResponse | null>(null);
 
   const load = useCallback(async (count: number) => {
     setLoading(true);
@@ -28,7 +28,10 @@ const useCountries = (limit: number) => {
       const data = await fetchCountries();
       setCountries(data.slice(0, count));
     } catch {
-      setError("Unable to load countries. Please try again.");
+      setError({
+        title: "Unable to load countries",
+        message: "Something went wrong while fetching the country data.",
+      });
     } finally {
       setLoading(false);
     }
@@ -43,5 +46,10 @@ const useCountries = (limit: number) => {
 
   return { countries, loading, error, refetch };
 };
+
+interface ErrorResponse {
+  title: string;
+  message: string;
+}
 
 export default useCountries;

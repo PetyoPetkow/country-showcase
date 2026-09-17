@@ -17,7 +17,7 @@ const CountryCard: FC<CountryCardProps> = ({ country }) => {
       <img
         src={country.image}
         alt={`Flag of ${country.name}`}
-        className="max-h-36 mx-auto border border-gray-300 dark:border-slate-600"
+        className="max-h-32 mx-auto border border-gray-300 dark:border-slate-600"
       />
 
       <div className="text-start mt-7">
@@ -31,7 +31,7 @@ const CountryCard: FC<CountryCardProps> = ({ country }) => {
           {country.continent.toUpperCase()}
         </div>
 
-        <p className="mt-3 text-gray-700 dark:text-slate-400">
+        <p className="mt-3 text-sm text-gray-700 dark:text-slate-400">
           {country.shortInfo}
         </p>
 

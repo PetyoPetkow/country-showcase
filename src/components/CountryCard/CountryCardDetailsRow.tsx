@@ -45,7 +45,7 @@ const CountryCardDetailsRow: FC<CountryCardDetailsRowProps> = ({
       <dt className="flex items-center gap-3 dark:text-white">
         <Icon
           aria-hidden="true"
-          className={continentIconColors[continent]}
+          className={`shrink-0 ${continentIconColors[continent]}`}
           size={18}
         />
         {label}
