@@ -10,7 +10,7 @@ The app includes search, continent filtering, sorting, loading and error states,
 - <strong>Node.js</strong> v24
 - <strong>pnpm</strong> v10 or newer
 
-### Instalation
+### Installation
 ```
 git clone https://github.com/PetyoPetkow/country-showcase.git
 cd country-showcase
