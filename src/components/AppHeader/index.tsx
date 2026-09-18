@@ -17,8 +17,8 @@ const AppHeader: FC<AppHeaderProps> = ({
 }) => {
   return (
     <header className="shadow border-b border-slate-300 bg-slate-50 px-4 py-4 dark:border-slate-600 dark:bg-slate-950 sm:sticky sm:top-0 sm:z-10 sm:px-10">
-      <div className="mx-auto flex max-w-350 flex-col gap-x-20 gap-y-6 lg:flex-row lg:items-center">
-        <div className="grid flex-1 grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+      <div className="mx-auto flex max-w-350 flex-col gap-x-8 gap-y-6 sm:grid sm:grid-cols-2 sm:gap-x-10 lg:flex lg:flex-row lg:items-center lg:gap-x-20">
+        <div className="grid flex-1 grid-cols-1 gap-6 sm:contents lg:grid lg:grid-cols-3">
           <SearchInput
             searchQuery={searchQuery}
             onSearchChange={onSearchChange}
