@@ -13,7 +13,7 @@ const SearchField: FC<SearchFieldProps> = ({ searchQuery, onSearchChange }) => {
         value={searchQuery}
         onChange={(event) => onSearchChange(event.target.value)}
         placeholder="Search by country name"
-        className="rounded-md border border-slate-300 bg-white px-3 py-2 text-slate-800 outline-none focus:border-slate-500 dark:border-slate-700 dark:bg-slate-900 dark:text-white"
+        className="rounded-md border border-slate-300 bg-white px-3 py-2 text-slate-800 outline-slate-500 dark:border-slate-700 dark:bg-slate-900 dark:text-white"
       />
     </>
   );

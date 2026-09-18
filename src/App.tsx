@@ -78,14 +78,14 @@ const App = () => {
         onSortOptionChange={setSortOption}
       />
 
-      <main className="flex flex-col min-h-[calc(100vh-4rem)] bg-gray-50 dark:bg-slate-950">
+      <main className="flex flex-col min-h-[calc(100vh-4rem)] bg-slate-100 dark:bg-slate-950">
         <section
-          aria-labelledby="countries-heading"
+          aria-label="Countries"
           className="flex-1 flex flex-col px-4 py-10"
         >
-          <h2 id="countries-heading" className="sr-only">
-            Countries
-          </h2>
+          <h1 className="sr-only">
+            Country Showcase
+          </h1>
 
           <CountryGrid
             countries={displayedCountries}

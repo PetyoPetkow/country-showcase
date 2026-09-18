@@ -3,30 +3,30 @@ import type { Continent, Country } from "../../types/country";
 import CountryCardDetailsRow from "./CountryCardDetailsRow";
 
 const continentNameBgColor: Record<Continent, string> = {
-  Africa: "bg-amber-500/70 dark:bg-amber-950",
-  Asia: "bg-green-700/80 dark:bg-green-950",
-  Europe: "bg-blue-500 dark:bg-blue-950",
-  "North America": "bg-red-500/80 dark:bg-red-950",
-  "South America": "bg-fuchsia-900/60 dark:bg-fuchsia-950",
-  Oceania: "bg-sky-400 dark:bg-sky-800",
+  Africa: "bg-amber-700 dark:bg-amber-950",
+  Asia: "bg-green-700 dark:bg-green-950",
+  Europe: "bg-blue-600 dark:bg-blue-950",
+  "North America": "bg-red-700 dark:bg-red-950",
+  "South America": "bg-fuchsia-900 dark:bg-fuchsia-950",
+  Oceania: "bg-sky-700 dark:bg-sky-800",
 };
 
 const CountryCard: FC<CountryCardProps> = ({ country }) => {
   return (
-    <article className="h-full p-4 rounded-md border border-gray-300 bg-white dark:border-slate-600 dark:bg-slate-900">
+    <article className="h-full p-4 rounded-md shadow border border-gray-300 bg-white dark:border-slate-600 dark:bg-slate-900">
       <img
         src={country.image}
         alt={`Flag of ${country.name}`}
-        className="max-h-32 mx-auto border border-gray-300 dark:border-slate-600"
+        className="max-h-32 mx-auto shadow border border-gray-300 dark:border-slate-600"
       />
 
       <div className="text-start mt-7">
-        <h3 className="text-3xl font-semibold text-slate-800 dark:text-white">
+        <h2 className="text-3xl font-semibold text-slate-800 dark:text-white">
           {country.name}
-        </h3>
+        </h2>
 
         <div
-          className={`text-white font-semibold text-center w-full my-2 rounded-sm ${continentNameBgColor[country.continent]}`}
+          className={`text-white shadow font-semibold text-center w-full my-2 rounded-sm ${continentNameBgColor[country.continent]}`}
         >
           {country.continent.toUpperCase()}
         </div>

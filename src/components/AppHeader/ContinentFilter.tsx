@@ -27,7 +27,7 @@ const ContinentFilter: FC<ContinentFilterProps> = ({
         onChange={(event) =>
           onContinentChange(event.target.value as Continent | "all")
         }
-        className="cursor-pointer rounded-md border border-slate-300 bg-white px-3 py-2 text-slate-800 outline-none focus:border-slate-500 dark:border-slate-700 dark:bg-slate-900 dark:text-white"
+        className="cursor-pointer rounded-md border border-slate-300 bg-white px-3 py-2 text-slate-800 outline-slate-500 dark:border-slate-700 dark:bg-slate-900 dark:text-white"
       >
         {continents.map((continent) => (
           <option key={continent} value={continent}>
