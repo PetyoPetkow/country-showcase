@@ -22,7 +22,7 @@ const ErrorState: FC<ErrorStateProps> = ({ title, message, onRetry }) => {
 
       <button
         onClick={onRetry}
-        className="mt-5 flex gap-3 items-center rounded-md cursor-pointer bg-slate-800 px-5 py-2 text-white hover:bg-slate-700 dark:bg-slate-200 dark:text-slate-900 dark:hover:bg-slate-300"
+        className="mt-5 flex cursor-pointer items-center gap-3 rounded-md bg-slate-800 px-5 py-2 text-white transition-colors duration-200 hover:bg-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-2 dark:bg-slate-200 dark:text-slate-900 dark:hover:bg-slate-300"
       >
         <RotateCw aria-hidden="true" size={18} /> Try again
       </button>

@@ -13,7 +13,7 @@ const continentNameBgColor: Record<Continent, string> = {
 
 const CountryCard: FC<CountryCardProps> = ({ country }) => {
   return (
-    <article className="h-full p-4 rounded-md shadow border border-gray-300 bg-white dark:border-slate-600 dark:bg-slate-900">
+    <article className="h-full rounded-md border border-gray-300 bg-white p-4 shadow transition-shadow duration-200 hover:shadow-lg dark:border-slate-600 dark:bg-slate-900 dark:shadow-indigo-900">
       <img
         src={country.image}
         alt={`Flag of ${country.name}`}
